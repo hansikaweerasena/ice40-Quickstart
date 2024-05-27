@@ -1,41 +1,47 @@
-module knight_rider (
-    input clki,        // Clock input
-    input reset,       // Active low reset
-    output [7:0] leds  // 8-bit output for the LEDs
-);
+`timescale 1ns / 1ps
 
-    reg [2:0] index = 0; // 3-bit index for current LED position
-    reg direction = 1;   // Direction of movement, 1 for right, 0 for left
+module knight_rider_tb;
 
-    // Register to handle LED output based on the current index
-    reg [7:0] led_reg = 8'b00000001;
+    // Inputs
+    reg clki;
+    reg reset;
 
-    // Assign the internal LED register state to the output
-    assign leds = led_reg;
+    // Outputs
+    wire [7:0] leds;
 
-    // LED control logic
-    always @(posedge clki or negedge reset) begin
-        if (!reset) begin
-            // Reset state
-            led_reg <= 8'b00000001;  // Start from the first LED
-            index <= 0;
-            direction <= 1;          // Start moving right
-        end else begin
-            // Normal operation
-            case (index)
-                7: direction <= 0;  // Change direction at the last LED
-                0: direction <= 1;  // Change direction at the first LED
-            endcase
+    // Instantiate the Unit Under Test (UUT)
+    knight_rider uut (
+        .clki(clki), 
+        .reset(reset), 
+        .leds(leds)
+    );
 
-            // Update the index based on the direction
-            if (direction)
-                index <= index + 1;  // Move right
-            else
-                index <= index - 1;  // Move left
+    // Clock generation (50 MHz)
+    initial begin
+        clki = 0;
+        forever #10 clki = ~clki;  // Toggle every 10 ns -> 50 MHz
+    end
 
-            // Update the LED register to shift the light
-            led_reg <= 8'b1 << index;  // Shift the bit to light up the corresponding LED
-        end
+    // Test stimulus
+    initial begin
+        // Initialize Inputs
+        reset = 1;  // Active low reset, start in reset state
+        #20;        // Wait 20 ns for global reset to take effect
+
+        reset = 0;  // Release reset
+        #500;       // Run simulation for 500 ns to observe LED behavior
+
+        reset = 1;  // Assert reset again to see response
+        #20;        // Short reset pulse
+        reset = 0;
+
+        #1000;      // Continue observing LED behavior
+        $finish;    // End simulation
+    end
+
+    // Monitor the LED output
+    initial begin
+        $monitor("Time = %t, LEDs = %b", $time, leds);
     end
 
 endmodule
