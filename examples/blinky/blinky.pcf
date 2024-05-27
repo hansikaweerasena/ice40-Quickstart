@@ -1,5 +1,8 @@
-set_io led J11
-
+# Clock input
 set_io clki P7
 
+# Active low reset input
 set_io reset P8
+
+# led output
+set_io led J11
