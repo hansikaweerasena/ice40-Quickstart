@@ -1,18 +1,18 @@
 module blinky (
     input  clki,
+    input reset,
     output led
 );
 
-    reg [25:0] counter;
+   reg [25:0] counter;
 
    assign led = ~counter[23];
 
-   initial begin
-      counter = 0;
-   end
-
-   always @(posedge clki)
+   always @(posedge clki or negedge reset)
    begin
-      counter <= counter + 1;
+      if (!reset)
+         counter <= 0;  // Asynchronous reset
+      else
+         counter <= counter + 1;
    end
 endmodule
