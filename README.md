@@ -1,7 +1,4 @@
-# ice40-Quickstart
-
-
-# iCE40 FPGA Essentials
+# iCE40 Quickstart
 
 This repository is dedicated to helping FPGA enthusiasts and beginners explore the capabilities of the iCE40 FPGA. It contains a collection of basic programs designed to get you started with digital design. Inside, you'll find:
 
