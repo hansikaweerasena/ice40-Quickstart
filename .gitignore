@@ -1,0 +1,19 @@
+# Ignore all directories named 'build' or similar build-related directories
+**/build/
+**/output/
+**/bin/
+**/generated/
+
+# Ignore specific file types that are commonly generated during builds
+*.bin
+*.asc
+*.json
+
+# Ignore log files and other miscellaneous file types
+*.log
+*.tmp
+*.temp
+
+# Optionally ignore editor backup files
+*~
+*.bak
