@@ -22,7 +22,7 @@ Following is the steps you need to build and run any RTL on Alchitry Cu using th
 
 3. Run the docker image
 
-'docker run -t -p 6080:6080 -v "${PWD}/:/ice40-Quickstart" -w /ice40-Quickstart --name ice40tools archfx/ice40tools'
+`docker run -t -p 6080:6080 -v "${PWD}/:/ice40-Quickstart" -w /ice40-Quickstart --name ice40tools archfx/ice40tools`
 
 4. Get in to interactive shell inside docker
 
