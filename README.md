@@ -8,4 +8,5 @@ This repository is dedicated to helping FPGA enthusiasts and beginners explore t
 
 Each program comes with comprehensive documentation, including step-by-step guides on how to set up your development environment, compile the code, and deploy it to an iCE40 FPGA board. Whether you're a student, a hobbyist, or just curious about FPGAs, this repository has the necessary tools to get you started.
 
+This repository will use Alchitry Cu FPGA which can use open-source toolchain that includes Yosys, Nextpnr, and IceStorm tools, which are commonly used for Lattice iCE40 FPGAs.
 
