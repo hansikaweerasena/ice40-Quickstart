@@ -1,0 +1,15 @@
+# Clock input
+set_io clki P7
+
+# Active low reset input
+set_io reset P8
+
+# LED outputs
+set_io leds[0] J10
+set_io leds[1] J11
+set_io leds[2] J12
+set_io leds[3] J13
+set_io leds[4] J14
+set_io leds[5] J15
+set_io leds[6] J16
+set_io leds[7] J17
