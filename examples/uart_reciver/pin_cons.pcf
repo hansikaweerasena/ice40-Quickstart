@@ -1,0 +1,11 @@
+# Clock input
+set_io clki P7
+
+# Active low reset input
+set_io reset P8
+
+# UART RX input
+set_io rx P14
+
+# led output
+set_io led J11
