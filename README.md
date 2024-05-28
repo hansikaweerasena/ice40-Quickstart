@@ -49,7 +49,7 @@ icepack blinky.asc blinky.bin
 
 7. Now enjoy
 
-### important considerations
+### Important considerations
 
 - **Pin Constraint Files (.pcf)**: 
    - The Alchitry Cu board includes specific pin constraint files (.pcf) for each example, essential for mapping the design's input/output signals to the physical pins of the FPGA. When using a different board equipped with an iCE40 FPGA, these files must be updated to reflect the pin configurations of the new board.
