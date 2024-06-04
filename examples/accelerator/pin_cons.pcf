@@ -1,0 +1,5 @@
+# Clock input
+set_io clk P7
+
+# Reset input
+set_io rst_n P8
